@@ -1,60 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel - Portfolio</title>
+    <title>Danielraj S — Full-Stack Developer Portfolio</title>
+    <meta name="description"
+        content="Danielraj S is a Full-Stack Developer with industry experience at Techcora Corporation, specializing in React.js, Node.js, and Python. B.Tech CSE student at SRM IST with 8.31 CGPA.">
+    <meta name="keywords"
+        content="Danielraj, Full-Stack Developer, React.js, Node.js, Portfolio, SRM, Computer Science, Techcora">
+    <meta name="author" content="Danielraj S">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Danielraj S — Full-Stack Developer Portfolio">
+    <meta property="og:description"
+        content="Full-Stack Developer with real industry experience building scalable web applications.">
+    <meta property="og:image" content="assets/profile%20image.png">
+    <meta property="og:url" content="https://danielraj5605.github.io/Portfoilio/">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
+    <!-- Accessibility: Skip to Content -->
+    <a href="#home" class="skip-to-content">Skip to Content</a>
+
+    <!-- Particle Canvas -->
+    <canvas id="particles"></canvas>
+
+    <!-- Mouse Spotlight -->
+    <div class="cursor-glow"></div>
+
     <main>
-        <nav class="header">
+        <!-- ============ Navigation ============ -->
+        <nav class="header" role="navigation" aria-label="Main Navigation">
             <div class="nav-container">
-                <h1 class="logo">Daniel<span class="accent">Raj</span></h1>
-                <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#project">Projects</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <a href="#home" class="logo" aria-label="Home">
+                    Daniel<span class="accent">Raj</span>
+                </a>
+
+                <div class="nav-right">
+                    <ul class="nav-menu">
+                        <li><a href="#about"><span class="nav-number">01.</span>About</a></li>
+                        <li><a href="#skills"><span class="nav-number">02.</span>Skills</a></li>
+                        <li><a href="#experience"><span class="nav-number">03.</span>Experience</a></li>
+                        <li><a href="#projects"><span class="nav-number">04.</span>Projects</a></li>
+                        <li><a href="#education"><span class="nav-number">05.</span>Education</a></li>
+                        <li><a href="#contact"><span class="nav-number">06.</span>Contact</a></li>
+                    </ul>
+
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                        <i class="fas fa-sun"></i>
+                    </button>
+
+                    <div class="hamburger" aria-label="Menu" role="button" tabindex="0">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </div>
         </nav>
 
+        <!-- ============ Social Sidebar ============ -->
+        <div class="social-sidebar" aria-label="Social Links">
+            <a href="https://github.com/Danielraj5605" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/danielraj-s-a84bbb310" target="_blank" rel="noopener noreferrer"
+                aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:danielraj.contact@gmail.com" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+
+        <!-- ============ Email Sidebar ============ -->
+        <div class="email-sidebar">
+            <a href="mailto:danielraj.contact@gmail.com">danielraj.contact@gmail.com</a>
+        </div>
+
+        <!-- ============ Hero Section ============ -->
         <section class="home" id="home">
             <div class="home-container">
-                <div class="avatar-container">
-                    <div class="avatar-wrapper">
-                        <img src="assets/IMG-20231208-WA0016.jpg" id="avatar" alt="Daniel's Profile">
-                        <div class="avatar-glow"></div>
+                <div class="home-content">
+                    <p class="home-greeting">Hi, my name is</p>
+                    <h1 class="home-name"><span class="accent-name">Danielraj S.</span></h1>
+                    <h2 class="home-tagline">I build things for the web.</h2>
+
+                    <div class="typing-wrapper">
+                        <span class="typing-label">&gt;&nbsp;</span>
+                        <span class="typing" aria-label="Role description"></span>
+                    </div>
+
+                    <p class="home-description">
+                        A Full-Stack Developer with industry experience at
+                        <strong>Techcora Corporation</strong>, specializing in React.js, Node.js,
+                        and scalable web applications. Currently pursuing B.Tech CSE at
+                        <a href="https://www.srmist.edu.in/" target="_blank" rel="noopener">SRM IST</a>
+                        with an 8.31 CGPA.
+                    </p>
+
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn primary"><i class="fas fa-code"></i> View My Work</a>
+                        <a href="#contact" class="btn primary"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+                        <a href="assets/resume.pdf" class="btn accent" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-file-alt"></i> Resume
+                        </a>
                     </div>
                 </div>
-                <div class="home-content">
-                    <div class="typing-container">
-                        <h2>Hi, I'm <span class="highlight">Danielraj</span> 👋</h2>
-                        <div class="typing-text">
-                            <span class="typing">Full-Stack Developer</span>
-                        </div>
-                    </div>
-                    <p class="home-description">
-                        A passionate Computer Science student at SRM, aspiring to be a Full-Stack Developer. 
-                        I love building responsive websites and turning ideas into interactive web applications.🚀 
-                        Let's code, learn, and grow together!
-                    </p>
-                    <div class="cta-buttons">
-                        <a href="#contact" class="btn primary">Get In Touch</a>
-                        <a href="#project" class="btn secondary">View Projects</a>
+
+                <div class="avatar-container">
+                    <div class="avatar-wrapper">
+                        <img src="assets/profile%20image.png" id="avatar" alt="Danielraj S — Profile Photo"
+                            loading="lazy">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-dots"></div>
                     </div>
                 </div>
             </div>
+
             <div class="scroll-indicator">
                 <div class="mouse">
                     <div class="wheel"></div>
@@ -62,125 +141,162 @@
             </div>
         </section>
 
-        <section class="about" id="about">
+        <!-- ============ About ============ -->
+        <section class="about reveal-section" id="about">
             <div class="section-container">
-                <h2 class="section-title">About Me</h2>
+                <div class="section-header">
+                    <span class="section-number">01.</span>
+                    <h2>About Me</h2>
+                </div>
+
                 <div class="about-content">
-                    <div class="about-text">
+                    <div class="about-text stagger">
                         <p>
-                            Hello! I'm <strong>Danielraj</strong>, a B.Tech Computer Science student at SRM Institute of Science and Technology, 
-                            with a strong passion for full-stack web development. I'm enthusiastic about crafting both the frontend and 
-                            backend of web applications — from clean and user-friendly interfaces to efficient server-side logic.
+                            Hello! I'm <strong>Danielraj</strong>, a Full-Stack Developer with real
+                            industry experience building production-grade web applications. I've worked
+                            at <strong>Techcora Corporation Pvt Ltd</strong> where I built inventory
+                            management platforms, school tracking systems, multi-tenant dashboards,
+                            and quick-commerce applications.
                         </p>
                         <p>
-                            💡 I enjoy solving problems, learning new technologies, and building real-world projects that make a difference.
-                            My goal is to grow as a developer by collaborating on exciting projects, exploring innovative solutions, 
-                            and continuously improving my skills.
+                            I'm currently pursuing my B.Tech in Computer Science Engineering at
+                            <a href="https://www.srmist.edu.in/" target="_blank" rel="noopener">SRM Institute of Science
+                                and Technology</a>, where I'm strengthening my foundations in data structures,
+                            algorithms, and software engineering.
                         </p>
                         <p>
-                            🎯 I'm open to internship opportunities and collaborative projects. Let's connect and create something awesome together!
+                            I thrive on building scalable, user-centric solutions and I'm always
+                            looking for new challenges. Let's build something great together!
                         </p>
+
+                        <p>Here are the technologies I work with:</p>
+                        <ul class="tech-list">
+                            <li>React.js</li>
+                            <li>Node.js</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>Python</li>
+                            <li>HTML5 & CSS3</li>
+                            <li>Tailwind CSS</li>
+                            <li>MySQL / PostgreSQL</li>
+                            <li>Java</li>
+                        </ul>
                     </div>
-                    <div class="tech-stack">
-                        <h3>Currently working with:</h3>
-                        <div class="tech-categories">
-                            <div class="tech-category">
-                                <h4><i class="fas fa-code"></i> Programming</h4>
-                                <span class="tech-tags">C • C++ • Java • Python</span>
-                            </div>
-                            <div class="tech-category">
-                                <h4><i class="fas fa-globe"></i> Frontend</h4>
-                                <span class="tech-tags">HTML • CSS • JavaScript • Bootstrap</span>
-                            </div>
-                            <div class="tech-category">
-                                <h4><i class="fas fa-server"></i> Backend & Database</h4>
-                                <span class="tech-tags">Java • MySQL</span>
-                            </div>
-                            <div class="tech-category">
-                                <h4><i class="fas fa-tools"></i> Tools</h4>
-                                <span class="tech-tags">VS Code • GitHub • MySQL Workbench</span>
-                            </div>
+
+                    <div class="about-photo stagger">
+                        <div class="about-photo-wrapper">
+                            <div class="about-photo-overlay"></div>
+                            <img src="assets/profile%20image.png" alt="Danielraj S" loading="lazy">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="skills" id="skills">
+        <!-- ============ Skills ============ -->
+        <section class="skills reveal-section" id="skills">
             <div class="section-container">
-                <h2 class="section-title">Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <div class="skill-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Programming Languages</h3>
-                        <div class="skill-items">
-                            <div class="skill-item">
+                <div class="section-header">
+                    <span class="section-number">02.</span>
+                    <h2>Skills & Technologies</h2>
+                </div>
+
+                <div class="skills-categories">
+                    <!-- Programming Languages -->
+                    <div class="skill-category-card stagger">
+                        <h3><i class="fas fa-terminal"></i> Programming Languages</h3>
+                        <div class="skill-icons-grid">
+                            <div class="skill-icon-item">
+                                <i class="devicon-c-plain"></i>
                                 <span>C</span>
-                                <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
                             </div>
-                            <div class="skill-item">
+                            <div class="skill-icon-item">
+                                <i class="devicon-cplusplus-plain"></i>
                                 <span>C++</span>
-                                <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
                             </div>
-                            <div class="skill-item">
+                            <div class="skill-icon-item">
+                                <i class="devicon-java-plain"></i>
                                 <span>Java</span>
-                                <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
                             </div>
-                            <div class="skill-item">
+                            <div class="skill-icon-item">
+                                <i class="devicon-python-plain"></i>
                                 <span>Python</span>
-                                <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <div class="skill-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <h3>Web Development</h3>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <span>HTML5</span>
-                                <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <span>CSS3</span>
-                                <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
-                            </div>
-                            <div class="skill-item">
+                            <div class="skill-icon-item">
+                                <i class="devicon-javascript-plain"></i>
                                 <span>JavaScript</span>
-                                <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
                             </div>
-                            <div class="skill-item">
+                        </div>
+                    </div>
+
+                    <!-- Frontend -->
+                    <div class="skill-category-card stagger">
+                        <h3><i class="fas fa-palette"></i> Frontend</h3>
+                        <div class="skill-icons-grid">
+                            <div class="skill-icon-item">
+                                <i class="devicon-html5-plain"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="skill-icon-item">
+                                <i class="devicon-css3-plain"></i>
+                                <span>CSS3</span>
+                            </div>
+                            <div class="skill-icon-item">
+                                <i class="devicon-react-original"></i>
+                                <span>React.js</span>
+                            </div>
+                            <div class="skill-icon-item">
+                                <i class="devicon-tailwindcss-original"></i>
+                                <span>Tailwind</span>
+                            </div>
+                            <div class="skill-icon-item">
+                                <i class="devicon-bootstrap-plain"></i>
                                 <span>Bootstrap</span>
-                                <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
                             </div>
-                            <div class="skill-item">
+                        </div>
+                    </div>
+
+                    <!-- Backend & Database -->
+                    <div class="skill-category-card stagger">
+                        <h3><i class="fas fa-database"></i> Backend & Database</h3>
+                        <div class="skill-icons-grid">
+                            <div class="skill-icon-item">
+                                <i class="devicon-nodejs-plain"></i>
+                                <span>Node.js</span>
+                            </div>
+                            <div class="skill-icon-item">
+                                <i class="devicon-python-plain"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="skill-icon-item">
+                                <i class="devicon-mysql-plain"></i>
                                 <span>MySQL</span>
-                                <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
+                            </div>
+                            <div class="skill-icon-item">
+                                <i class="devicon-postgresql-plain"></i>
+                                <span>PostgreSQL</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="skill-category">
-                        <div class="skill-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3>Tools & Platforms</h3>
-                        <div class="skill-items">
-                            <div class="skill-item">
+                    <!-- Tools & Platforms -->
+                    <div class="skill-category-card stagger">
+                        <h3><i class="fas fa-wrench"></i> Tools & Platforms</h3>
+                        <div class="skill-icons-grid">
+                            <div class="skill-icon-item">
+                                <i class="devicon-vscode-plain"></i>
                                 <span>VS Code</span>
-                                <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
                             </div>
-                            <div class="skill-item">
+                            <div class="skill-icon-item">
+                                <i class="devicon-git-plain"></i>
+                                <span>Git</span>
+                            </div>
+                            <div class="skill-icon-item">
+                                <i class="devicon-github-original"></i>
                                 <span>GitHub</span>
-                                <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
                             </div>
-                            <div class="skill-item">
-                                <span>MySQL Workbench</span>
-                                <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+                            <div class="skill-icon-item">
+                                <i class="devicon-firebase-plain"></i>
+                                <span>Firebase</span>
                             </div>
                         </div>
                     </div>
@@ -188,215 +304,434 @@
             </div>
         </section>
 
-        <section class="project" id="project">
+        <!-- ============ Experience ============ -->
+        <section class="experience reveal-section" id="experience">
             <div class="section-container">
-                <h2 class="section-title">Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-globe project-icon"></i>
+                <div class="section-header">
+                    <span class="section-number">03.</span>
+                    <h2>Where I've Worked</h2>
+                </div>
+
+                <div class="experience-list">
+                    <!-- Current Role -->
+                    <div class="experience-card stagger">
+                        <div class="experience-header">
+                            <h3 class="experience-title">
+                                Full Stack Developer <span class="company">@ Techcora Corporation Pvt Ltd</span>
+                            </h3>
+                            <span class="experience-date">Nov 2025 — Present</span>
                         </div>
-                        <div class="project-content">
-                            <h3>Personal Portfolio Website</h3>
+                        <ul class="experience-description">
+                            <li>Working on developing and improving features for a <strong>Quick-Commerce
+                                    Platform</strong></li>
+                            <li>Supporting order flow, delivery tracking, and user experience enhancements</li>
+                            <li>Assisting with API integration, issue resolution, and performance optimization</li>
+                            <li>Collaborating with the team to ensure smooth and reliable platform operations</li>
+                        </ul>
+                        <div class="experience-tech">
+                            <span>React.js</span>
+                            <span>Node.js</span>
+                            <span>REST APIs</span>
+                            <span>Quick-Commerce</span>
+                        </div>
+                    </div>
+
+                    <!-- Internship -->
+                    <div class="experience-card stagger">
+                        <div class="experience-header">
+                            <h3 class="experience-title">
+                                Full Stack Developer · Intern <span class="company">@ Techcora Corporation Pvt
+                                    Ltd</span>
+                            </h3>
+                            <span class="experience-date">Jul 2025 — Oct 2025</span>
+                        </div>
+                        <ul class="experience-description">
+                            <li><strong>Inventory Management Platform:</strong> Designed and implemented key features to
+                                streamline inventory workflows, enhance UX, and improve operational efficiency across
+                                departments</li>
+                            <li><strong>Smart School Tracking System:</strong> Contributed to a full-stack web & mobile
+                                app for school transportation management with real-time bus tracking and route
+                                optimization</li>
+                            <li><strong>Supermarket Multi-Tenant Dashboard:</strong> Developed multi-tenant
+                                functionality supporting multiple branches under a centralized dashboard with
+                                branch-level analytics and access control</li>
+                        </ul>
+                        <div class="experience-tech">
+                            <span>React.js</span>
+                            <span>Node.js</span>
+                            <span>Firebase</span>
+                            <span>REST APIs</span>
+                            <span>Full-Stack</span>
+                        </div>
+                    </div>
+
+                    <!-- Volunteering -->
+                    <div class="experience-card stagger">
+                        <div class="experience-header">
+                            <h3 class="experience-title">
+                                Volunteer <span class="company">@ Amar Seva Sangam</span>
+                            </h3>
+                            <span class="experience-date">Jun 2025</span>
+                        </div>
+                        <ul class="experience-description">
+                            <li>Participated in the Community Service Programme, contributing to social impact
+                                initiatives</li>
+                            <li>Collaborated with fellow volunteers on community development and outreach activities
+                            </li>
+                        </ul>
+                        <div class="experience-tech">
+                            <span>Community Service</span>
+                            <span>Volunteering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ Projects ============ -->
+        <section class="project reveal-section" id="projects">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">04.</span>
+                    <h2>Things I've Built</h2>
+                </div>
+
+                <!-- Featured Project: HabitFlow -->
+                <div class="featured-project stagger">
+                    <p class="featured-label">Featured Project</p>
+                    <div class="featured-content">
+                        <div class="featured-info">
+                            <h3>HabitFlow</h3>
                             <p>
-                                A fully responsive, single-page portfolio website built to showcase my skills, projects, 
-                                and background as an aspiring full-stack developer.
+                                A full-stack productivity web application to help users build
+                                and track daily habits and routines. Features an interactive and
+                                responsive frontend with React.js, a Python backend handling
+                                authentication, habit tracking, and data management. Powered by
+                                Neon's cloud-based PostgreSQL for reliable storage.
                             </p>
-                            <div class="project-features">
-                                <span class="feature">✨ Modern UI Design</span>
-                                <span class="feature">📱 Mobile Responsive</span>
-                                <span class="feature">🧠 Great UX</span>
-                                <span class="feature">🚀 Interactive Elements</span>
+                            <div class="project-tech-stack">
+                                <span>React.js</span>
+                                <span>Python</span>
+                                <span>Neon DB</span>
+                                <span>PostgreSQL</span>
+                                <span>Full-Stack</span>
                             </div>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML5</span>
-                                <span class="tech-tag">CSS3</span>
-                                <span class="tech-tag">JavaScript</span>
+                            <div class="featured-links">
+                                <a href="https://github.com/Danielraj5605" target="_blank" rel="noopener noreferrer"
+                                    aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
                             </div>
-                            <div class="project-links">
-                                <a href="#" class="btn-link">Live Demo</a>
-                                <a href="#" class="btn-link">Source Code</a>
+                        </div>
+                        <div class="featured-image">
+                            <div class="project-screenshot">
+                                <i class="fas fa-check-double"></i>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Projects Grid -->
+                <div class="projects-grid">
+                    <!-- Real-time Pothole Detection -->
+                    <div class="project-card stagger">
+                        <div class="project-top">
+                            <i class="fas fa-folder-open project-folder"></i>
+                            <div class="project-external-links">
+                                <a href="https://github.com/Danielraj5605/Real-time-Pothole-Detection" target="_blank"
+                                    rel="noopener noreferrer" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3>Real-Time Pothole Detection</h3>
+                        <p>
+                            An AI-powered system that detects road potholes in real-time using
+                            YOLOv8 object detection with multi-sensor fusion. Trained on 2000+
+                            annotated road images with live camera feed support for instant
+                            detection and alerting.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span>Python</span>
+                            <span>YOLOv8</span>
+                            <span>OpenCV</span>
+                            <span>Deep Learning</span>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Website -->
+                    <div class="project-card stagger">
+                        <div class="project-top">
+                            <i class="fas fa-folder-open project-folder"></i>
+                            <div class="project-external-links">
+                                <a href="https://github.com/Danielraj5605/Portfoilio" target="_blank"
+                                    rel="noopener noreferrer" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://danielraj5605.github.io/Portfoilio/" target="_blank"
+                                    rel="noopener noreferrer" aria-label="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3>Portfolio Website</h3>
+                        <p>
+                            A responsive personal portfolio with interactive particle animations,
+                            dark/light mode, smooth scrolling, and EmailJS contact form integration.
+                            Deployed on Firebase with a custom domain, featuring project case
+                            studies and tech stack showcases.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>Firebase</span>
+                        </div>
+                    </div>
+
+                    <!-- Online Quiz Platform -->
+                    <div class="project-card stagger">
+                        <div class="project-top">
+                            <i class="fas fa-folder-open project-folder"></i>
+                            <div class="project-external-links">
+                                <a href="https://github.com/Danielraj5605" target="_blank" rel="noopener noreferrer"
+                                    aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3>Online Quiz Platform</h3>
+                        <p>
+                            A full-stack web application for user registration, quiz-taking, and
+                            score tracking. Features user authentication, dynamic question rendering,
+                            real-time scoring, and a clean UI. Built with scalability and future
+                            AI-based analytics in mind.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>MySQL</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="education" id="education">
+        <!-- ============ Education ============ -->
+        <section class="education reveal-section" id="education">
             <div class="section-container">
-                <h2 class="section-title">🎓 Education</h2>
+                <div class="section-header">
+                    <span class="section-number">05.</span>
+                    <h2>Education</h2>
+                </div>
+
                 <div class="education-timeline">
-                    <div class="education-item">
-                        <div class="education-icon">
+                    <!-- B.Tech -->
+                    <div class="education-item stagger">
+                        <div class="education-icon-box">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
                         <div class="education-content">
                             <h3>Bachelor of Technology (B.Tech)</h3>
-                            <h4>Computer Science Engineering</h4>
-                            <p class="institution">SRM Institute of Science and Technology – Chennai, India</p>
+                            <h4>Computer Science and Engineering</h4>
+                            <p class="institution">SRM Institute of Science and Technology — Kattankulathur</p>
+                            <p class="edu-date">2023 — 2027 (Expected)</p>
                             <p class="description">
-                                Pursuing a Bachelor's degree in Computer Science with a focus on Software Development 
-                                and Emerging Technologies. Building strong foundations in programming, data structures, 
-                                algorithms, and web development.
+                                Pursuing B.Tech in CSE with focus on software development,
+                                data structures, algorithms, and emerging technologies.
                             </p>
+                        </div>
+                    </div>
+
+                    <!-- Class XII -->
+                    <div class="education-item stagger">
+                        <div class="education-icon-box">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div class="education-content">
+                            <h3>Class XII — CBSE</h3>
+                            <h4>Maths & Computer Science</h4>
+                            <p class="institution">Bharath Vidya Mandir — Ilanji, Tenkasi, Tamil Nadu</p>
+                            <p class="edu-date">2023</p>
+                            <p class="description">
+                                Studied Mathematics and Computer Science stream under CBSE curriculum.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Class X -->
+                    <div class="education-item stagger">
+                        <div class="education-icon-box">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="education-content">
+                            <h3>Class X — CBSE</h3>
+                            <h4>General</h4>
+                            <p class="institution">Bharath Vidya Mandir — Ilanji, Tenkasi, Tamil Nadu</p>
+                            <p class="edu-date">2021</p>
+                            <p class="description">
+                                Completed secondary education under CBSE curriculum.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="section-header" style="margin-top: 4rem;">
+                    <span class="section-number">✦</span>
+                    <h2>Certifications</h2>
+                </div>
+
+                <div class="education-timeline">
+                    <div class="education-item stagger">
+                        <div class="education-icon-box">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="education-content">
+                            <h3>Introduction to Machine Learning</h3>
+                            <h4>Indian Institute of Technology, Kharagpur · NPTEL</h4>
+                            <p class="edu-date">Oct 2025</p>
+                        </div>
+                    </div>
+
+                    <div class="education-item stagger">
+                        <div class="education-icon-box">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="education-content">
+                            <h3>Programming in Java</h3>
+                            <h4>Indian Institute of Technology, Kharagpur · NPTEL</h4>
+                            <p class="edu-date">Nov 2024</p>
+                        </div>
+                    </div>
+
+                    <div class="education-item stagger">
+                        <div class="education-icon-box">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="education-content">
+                            <h3>Python 101 for Data Science</h3>
+                            <h4>IBM</h4>
+                            <p class="edu-date">Dec 2023</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="contact" id="contact">
+        <!-- ============ Contact ============ -->
+        <section class="contact reveal-section" id="contact">
             <div class="section-container">
-                <h2 class="section-title">Let's Connect</h2>
-                <div class="contact-content">
-                    <div class="contact-info glass">
-                        <h3>📞 Contact Information</h3>
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <span>+91-9361529905</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>danielraj.2k@gmail.com</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fab fa-linkedin"></i>
-                                <a href="https://www.linkedin.com/in/danielraj-s-a84bbb310" target="_blank">LinkedIn Profile</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fab fa-github"></i>
-                                <a href="https://github.com/Danielraj5605" target="_blank">GitHub Profile</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Chennai, India</span>
-                            </div>
+                <div class="section-header">
+                    <span class="section-number">06.</span>
+                    <h2>Get In Touch</h2>
+                </div>
+
+                <div class="contact-hero stagger">
+                    <h3 class="contact-headline">Let's Work Together</h3>
+                    <p class="contact-intro">
+                        I'm currently looking for new opportunities and my inbox is always open.
+                        Whether you have a question, a project idea, or just want to say hi —
+                        I'll try my best to get back to you!
+                    </p>
+                    <a href="mailto:danielraj.contact@gmail.com" class="btn accent contact-cta">
+                        <i class="fas fa-paper-plane"></i> Say Hello
+                    </a>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Cards -->
+                    <div class="contact-card stagger">
+                        <div class="contact-card-icon">
+                            <i class="fas fa-envelope"></i>
                         </div>
+                        <h4>Email</h4>
+                        <a href="mailto:danielraj.contact@gmail.com">danielraj.contact@gmail.com</a>
                     </div>
 
-                    <form class="contact-form glass">
-                        <h3>Get in Touch</h3>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your name..." required>
+                    <div class="contact-card stagger">
+                        <div class="contact-card-icon">
+                            <i class="fas fa-phone"></i>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="mobile">Mobile Number</label>
-                            <input type="tel" id="mobile" name="mobile" placeholder="Your mobile number...">
+                        <h4>Phone</h4>
+                        <span>+91 9361529905</span>
+                    </div>
+
+                    <div class="contact-card stagger">
+                        <div class="contact-card-icon">
+                            <i class="fab fa-linkedin-in"></i>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your email..." required>
+                        <h4>LinkedIn</h4>
+                        <a href="https://www.linkedin.com/in/danielraj-s-a84bbb310" target="_blank"
+                            rel="noopener noreferrer">Connect with me</a>
+                    </div>
+
+                    <div class="contact-card stagger">
+                        <div class="contact-card-icon">
+                            <i class="fab fa-github"></i>
                         </div>
-                        
+                        <h4>GitHub</h4>
+                        <a href="https://github.com/Danielraj5605" target="_blank" rel="noopener noreferrer">View my
+                            repos</a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper stagger">
+                    <form class="contact-form" aria-label="Contact Form">
+                        <h3><i class="fas fa-comment-dots"></i> Send a Message</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your name" required
+                                    autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required
+                                    autocomplete="email">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+                            <textarea id="message" name="message" placeholder="Hey Danielraj, I'd love to work on..."
+                                required></textarea>
                         </div>
-
-                        <div class="form-actions">
-                            <button type="submit" class="btn primary">Send Message</button>
-                            <input type="reset" value="Reset" class="btn secondary">
-                        </div>
+                        <button type="submit" class="btn accent form-submit">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- ============ Footer ============ -->
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2025 Danielraj. Made with lots of ❤️</p>
-            <div class="social-links">
-                <a href="https://github.com/Danielraj5605" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/danielraj-s-a84bbb310" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <div class="footer-social">
+                <a href="https://github.com/Danielraj5605" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/danielraj-s-a84bbb310" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:danielraj.contact@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
+            <p>
+                Designed & Built by <a href="https://github.com/Danielraj5605" target="_blank"
+                    rel="noopener noreferrer">Danielraj S</a>
+            </p>
+            <p>&copy; 2025 — All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Animate skill bars on scroll
-        const animateSkillBars = () => {
-            const skillBars = document.querySelectorAll('.skill-progress');
-            skillBars.forEach(bar => {
-                const width = bar.getAttribute('data-width');
-                bar.style.width = width + '%';
-            });
-        };
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    if (entry.target.classList.contains('skills')) {
-                        animateSkillBars();
-                    }
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, observerOptions);
-
-        // Observe sections for animations
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simple form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && message) {
-                alert('Thank you for your message! I\'ll get back to you soon.');
-                this.reset();
-            } else {
-                alert('Please fill in all required fields.');
-            }
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
+
 </html>
