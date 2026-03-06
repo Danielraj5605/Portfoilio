@@ -126,9 +126,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const roles = [
             'Full-Stack Developer',
             'React.js & Node.js Developer',
-            'CS Student @ SRM IST',
-            'Building Scalable Web Apps',
-            'Former Intern @ Techcora'
+            'AI + Computer Vision Enthusiast',
+            'Building Production Systems',
+            'Developer @ Techcora Corp'
         ];
         let roleIndex = 0;
         let charIndex = 0;
@@ -207,17 +207,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section[id]');
     function updateActiveNav() {
         const scrollY = window.pageYOffset;
+        let currentSectionId = '';
+
         sections.forEach(section => {
             const sectionHeight = section.offsetHeight;
-            const sectionTop = section.offsetTop - 120;
-            const sectionId = section.getAttribute('id');
-            const navLink = document.querySelector(`.nav-menu a[href="#${sectionId}"]`);
-            if (navLink) {
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    navLink.classList.add('active');
-                } else {
-                    navLink.classList.remove('active');
-                }
+            const sectionTop = section.offsetTop - 150; // Adjusted offset for better trigger
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(navLink => {
+            const href = navLink.getAttribute('href');
+            if (href === `#${currentSectionId}`) {
+                navLink.classList.add('active');
+            } else {
+                navLink.classList.remove('active');
             }
         });
     }
@@ -309,63 +314,72 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // ---------- Contact Form ----------
-    const contactForm = document.querySelector('.contact-form');
+    // ---------- Say Hello Button Focus ----------
+    const sayHelloBtns = document.querySelectorAll('.contact-cta');
+    sayHelloBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Smooth scroll is already handled by the general # anchor listener
+            // but we add a delay to wait for scroll, then focus
+            setTimeout(() => {
+                const nameInput = document.getElementById('name');
+                if (nameInput) {
+                    nameInput.focus();
+                    // Add a temporary highlight effect to the input
+                    nameInput.style.borderColor = 'var(--primary-color)';
+                    nameInput.style.boxShadow = '0 0 0 4px rgba(var(--primary-color-rgb), 0.2)';
+                    setTimeout(() => {
+                        nameInput.style.borderColor = '';
+                        nameInput.style.boxShadow = '';
+                    }, 2000);
+                }
+            }, 1000); // 1s matches well with smooth scroll duration from hero
+        });
+    });
+
+    // ---------- Contact Form (Web3Forms Implementation) ----------
+    const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
 
-            if (!name || !email || !message) {
-                showToast('Please fill in all required fields.', 'error');
-                return;
-            }
+            // Basic validation check (Mobile & Email regex already handled by attributes/previous logic)
+            const formData = new FormData(contactForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
 
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showToast('Please enter a valid email address.', 'error');
-                return;
-            }
-
+            // Change button state
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
 
-            // ---- EmailJS Integration ----
-            // To make this work:
-            // 1. Create a free account at https://www.emailjs.com/
-            // 2. Create an Email Service (Gmail recommended)
-            // 3. Create an Email Template
-            // 4. Replace the IDs below with your actual IDs
-            //
-            // Uncomment the following block after setting up EmailJS:
-            //
-            // emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
-            //     from_name: name,
-            //     from_email: email,
-            //     message: message,
-            // }).then(() => {
-            //     showToast('Message sent successfully! I\'ll get back to you soon.', 'success');
-            //     this.reset();
-            // }).catch(() => {
-            //     showToast('Failed to send message. Please try again.', 'error');
-            // }).finally(() => {
-            //     submitBtn.innerHTML = originalText;
-            //     submitBtn.disabled = false;
-            // });
-
-            // Fallback (remove this when EmailJS is configured)
-            setTimeout(() => {
-                showToast('Thanks for your message! I\'ll get back to you soon. 🚀', 'success');
-                this.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status == 200) {
+                        showToast('Thanks for your message! I\'ll get back to you soon. 🚀', 'success');
+                        contactForm.reset();
+                    } else {
+                        console.log(response);
+                        showToast(json.message || 'Something went wrong. Please try again.', 'error');
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    showToast('Network error. Please check your connection.', 'error');
+                })
+                .finally(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
         });
     }
 
