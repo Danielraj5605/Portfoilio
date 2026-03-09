@@ -413,7 +413,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 0;
+    padding-top: 80px;
     background: var(--gradient-hero);
 }
 
@@ -1609,6 +1609,18 @@ section {
 .footer-social a:hover {
     color: var(--primary-color);
     transform: translateY(-2px);
+}
+
+.contact-card-icon-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+.contact-card-icon-link:hover .contact-card-icon {
+    background: rgba(var(--primary-color-rgb), 0.2);
+    transform: scale(1.1);
 }
 
 /* ============================================================
