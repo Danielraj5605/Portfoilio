@@ -1,0 +1,254 @@
+@import 'tailwindcss';
+
+@custom-variant night (&:where([data-theme='night'], [data-theme='night'] *));
+
+/* ============================================================
+   Colour tokens — "Ghibli meets enterprise"
+   Day = bright meadow sky, Night = starry dusk. One accent: Sunset Coral.
+   ============================================================ */
+:root,
+[data-theme='day'] {
+  --sky-1: #8ec5e8;
+  --sky-2: #cfe7f3;
+  --sky-3: #f7e6c4;
+  --hill-far: #a9c79a;
+  --hill-mid: #76a266;
+  --hill-near: #3f6b45;
+  --grass: #2f5a37;
+  --surface: rgb(251 246 236 / 0.72);
+  --surface-solid: #fbf6ec;
+  --surface-line: rgb(28 40 48 / 0.1);
+  --ink: #1c2830;
+  --muted: #3b464d; /* ≥4.5:1 even on the brightest sky blue */
+  --accent: #e0703a;
+  --accent-ink: #a8481b; /* accent for text — AA on light surfaces */
+  --on-accent: #1c2830;
+  --glow: #ffd98a;
+  --cloud: #ffffff;
+  --cloud-shade: #e3eef5;
+  color-scheme: light;
+}
+
+[data-theme='night'] {
+  --sky-1: #0d1a33;
+  --sky-2: #27305a;
+  --sky-3: #5b4a78;
+  --hill-far: #2e3f55;
+  --hill-mid: #1f3040;
+  --hill-near: #13212b;
+  --grass: #0e1a22;
+  --surface: rgb(23 34 56 / 0.65);
+  --surface-solid: #172238;
+  --surface-line: rgb(243 237 224 / 0.1);
+  --ink: #f3ede0;
+  --muted: #a9b2c3;
+  --accent: #f28a52;
+  --accent-ink: #f7a073;
+  --on-accent: #111a2c;
+  --glow: #f6e27a;
+  --cloud: #3a4570;
+  --cloud-shade: #2b3459;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-sky-1: var(--sky-1);
+  --color-sky-2: var(--sky-2);
+  --color-sky-3: var(--sky-3);
+  --color-hill-far: var(--hill-far);
+  --color-hill-mid: var(--hill-mid);
+  --color-hill-near: var(--hill-near);
+  --color-grass: var(--grass);
+  --color-surface: var(--surface);
+  --color-surface-solid: var(--surface-solid);
+  --color-line: var(--surface-line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-on-accent: var(--on-accent);
+  --color-glow: var(--glow);
+
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+@theme {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --radius-card: 1.5rem;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-breathe: breathe 4.5s ease-in-out infinite;
+  --animate-drift: drift var(--drift-duration, 90s) linear infinite;
+  --animate-twinkle: twinkle var(--twinkle-duration, 3s) ease-in-out infinite;
+  --animate-mote: mote var(--mote-duration, 14s) ease-in-out infinite;
+  --animate-firefly: firefly var(--mote-duration, 9s) ease-in-out infinite;
+  --animate-sway: sway 5s ease-in-out infinite;
+  --animate-blink: blink 5.5s ease-in-out infinite;
+  --animate-orbit: orbit var(--orbit-duration, 60s) linear infinite;
+  --animate-orbit-reverse: orbit var(--orbit-duration, 60s) linear infinite reverse;
+  --animate-marquee: marquee var(--marquee-duration, 36s) linear infinite;
+
+  @keyframes orbit {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes marquee {
+    to { transform: translate3d(-50%, 0, 0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0, -12px, 0); }
+  }
+  @keyframes breathe {
+    0%, 100% { transform: scale3d(1, 1, 1); }
+    50% { transform: scale3d(1.012, 1.022, 1); }
+  }
+  @keyframes drift {
+    from { transform: translate3d(-30vw, 0, 0); }
+    to { transform: translate3d(130vw, 0, 0); }
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.25; }
+    50% { opacity: 1; }
+  }
+  @keyframes mote {
+    0% { transform: translate3d(0, 0, 0); opacity: 0; }
+    20% { opacity: 0.9; }
+    80% { opacity: 0.7; }
+    100% { transform: translate3d(var(--mote-x, 40px), -140px, 0); opacity: 0; }
+  }
+  @keyframes firefly {
+    0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.15; }
+    30% { opacity: 1; }
+    50% { transform: translate3d(var(--mote-x, 30px), -40px, 0); opacity: 0.5; }
+    70% { opacity: 1; }
+  }
+  @keyframes blink {
+    0%, 93%, 100% { transform: scaleY(1); }
+    95.5% { transform: scaleY(0.1); }
+  }
+  @keyframes sway {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+  }
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: 5rem;
+    background: var(--sky-1);
+  }
+  html:has([data-landing]) {
+    background: #0c0c0c;
+  }
+  body {
+    @apply bg-transparent font-sans text-ink;
+    overflow-x: clip;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1280px;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+@utility glass {
+  background: var(--surface);
+  border: 1px solid var(--surface-line);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+}
+
+/* Day/night layers crossfade — opacity only */
+.day-only,
+.night-only {
+  transition: opacity 1.2s var(--ease-in-out);
+}
+.night-only {
+  opacity: 0;
+}
+[data-theme='night'] .day-only {
+  opacity: 0;
+}
+[data-theme='night'] .night-only {
+  opacity: 1;
+}
+
+/* Intro loader only exists visually on a flagged first visit */
+html:not([data-intro='play']) .intro-root {
+  display: none;
+}
+
+/* No intro to hide behind: keep on-load reveals hidden from the first frame
+   (Motion's inline styles take over on hydration). */
+html:not([data-intro='play']) [data-reveal-onload] [data-reveal-piece] {
+  transform: translateY(115%);
+}
+html:not([data-intro='play']) [data-reveal-fade] {
+  opacity: 0;
+}
+
+/* Loops for the theme that isn't showing are invisible — don't run them.
+   (Night-only layers inside an always-night scope, like the footer, keep running.) */
+:root:not([data-theme='night']) .night-only:not([data-theme='night'] .night-only) *,
+[data-theme='night'] .day-only * {
+  animation-play-state: paused;
+}
+
+/* Decorative loops pause when their scene is off-screen */
+[data-paused='true'] *,
+[data-paused='true'] {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Landing page: gradient headline text */
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

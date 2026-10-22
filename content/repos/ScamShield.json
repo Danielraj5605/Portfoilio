@@ -1,0 +1,2 @@
+{"created_at":"2026-10-17T11:08:37Z","description":" AI scam-message detector for the IBM Z Datathon 2026. Paste an SMS or WhatsApp message and get a risk level, plain-English reasons and advice. Neural + TF-IDF text models, link checker and a learned ensemble, trained and served on IBM LinuxONE","homepage":null,"html_url":"https://github.com/Danielraj5605/ScamShield","language":"Python","name":"ScamShield","pushed_at":"2026-10-18T14:22:10Z","topics":[]}
+CSS, HTML, JavaScript, Makefile, Python, Shell
