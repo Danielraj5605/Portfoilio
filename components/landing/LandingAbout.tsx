@@ -6,7 +6,7 @@ import { Float } from './Float';
 import { RevealText } from './RevealText';
 
 const ABOUT_TEXT =
-  "I'm a full-stack engineer and final-year Computer Science student at SRM (CGPA 8.31). Since July 2025 I've been shipping inventory, school-tracking, multi-tenant and quick-commerce products at Techcora, and on my own I build AI tools like ScamShield, trained on IBM LinuxONE, and a distributed job scheduler. Let's build something incredible together!";
+  "I'm a full-stack engineer and final-year Computer Science student at SRM (CGPA 8.31). I like finding the repetitive, slow step in a process and building a simple tool that removes it. Ghost API turns a manual DevTools hunt into a tested client, Log Whisperer explains the cause of an alert instead of just the error, and ScamShield explains its verdict in plain words. I've shipped production web products at Techcora since July 2025, and I'm looking to apply the same problem-first approach to AI tools and workflows for design teams.";
 
 const DECOS: { Icon: LucideIcon; position: string; size: string; delay: number; x: number; tilt: string }[] = [
   { Icon: Code2, position: 'top-[4%] left-[1%] sm:left-[2%] md:left-[4%]', size: 'size-[96px] sm:size-[128px] md:size-[168px]', delay: 0.1, x: -80, tilt: '-rotate-6' },

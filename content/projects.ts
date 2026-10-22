@@ -35,7 +35,7 @@ export const projects: Project[] = [
     kind: 'AI agent · website to typed API client',
     tagline: 'Give it a website. Get back a tested API client.',
     summary:
-      'An AI agent that explores a site in a real browser, works out its hidden JSON API and generates a typed, verified Python or TypeScript client.',
+      'Removes the manual work of copying requests out of DevTools. An AI agent that explores a site in a real browser, works out its hidden JSON API and generates a typed, verified Python or TypeScript client.',
     size: 'wide',
     art: 'chat',
     palette: ['#5b4bd6', '#c9f0e4'],
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     kind: 'AI live log intelligence agent',
     tagline: 'An alert that explains the root cause, not just the error.',
     summary:
-      'A CLI agent that tails logs from files, Docker or stdin and uses an LLM to raise evidence-backed anomaly alerts.',
+      'Replaces a wall of duplicate alerts with one that names the cause. A CLI agent that tails logs from files, Docker or stdin and uses an LLM to raise evidence-backed anomaly alerts.',
     size: 'wide',
     art: 'radar',
     palette: ['#3d5a80', '#c5d8e8'],
@@ -88,7 +88,7 @@ export const projects: Project[] = [
     kind: 'AI scam-message detector · IBM Z Datathon 2026',
     tagline: 'Paste a message. Learn in plain words if it is a scam.',
     summary:
-      'An AI that rates SMS and WhatsApp messages HIGH / MEDIUM / LOW risk, explains why in plain English, and runs on IBM LinuxONE.',
+      'Explains its verdict in words a first-time smartphone user understands. An AI that rates SMS and WhatsApp messages HIGH / MEDIUM / LOW risk, explains why in plain English, and runs on IBM LinuxONE.',
     size: 'feature',
     art: 'radar',
     palette: ['#4a7fd1', '#cfe7f3'],
