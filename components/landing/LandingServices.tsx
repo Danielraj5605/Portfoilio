@@ -3,24 +3,24 @@ import { RevealText } from './RevealText';
 
 const SERVICES = [
   {
-    name: 'Full-Stack Development',
-    description: 'End-to-end web applications with React and Node.js, from responsive interfaces to REST APIs and the data behind them.',
+    name: 'Workflow Automation',
+    description: 'Scripts and small tools in Python and TypeScript that take over a repetitive step, such as generating a tested API client from a website instead of copying requests by hand.',
   },
   {
-    name: 'AI-Powered Products',
-    description: 'AI features such as scam detection, natural-language segmentation and LLM log analysis, designed so the reasoning stays visible and results can be trusted.',
+    name: 'AI Tools & Prototypes',
+    description: 'LLM and ML features built into tools people can use: natural-language segmentation, log analysis and message screening, with the reasoning kept visible.',
   },
   {
-    name: 'Security & Fraud Detection',
-    description: 'ML-powered tools such as scam-message and phishing-URL detectors that explain their verdicts in plain language.',
+    name: 'Testing AI Tools',
+    description: 'Comparing models and providers on the same task and measuring the result, for example recall and precision on held-out data, so the choice rests on evidence.',
   },
   {
-    name: 'API Integration',
-    description: 'Connecting services and data sources, then tuning performance so order flows, tracking and reports stay fast and reliable.',
+    name: 'Deployed Web Apps',
+    description: 'End-to-end React and Node.js applications, shipped and live, from the interface to the REST API and the database behind it.',
   },
   {
-    name: 'Multi-Tenant Dashboards',
-    description: 'Branch- and role-based analytics with access control, for organisations that need one product across many teams.',
+    name: 'Docs & Explanations',
+    description: 'Case studies and plain-language write-ups that explain how a tool works to people who are not engineers, so it actually gets adopted.',
   },
 ];
 

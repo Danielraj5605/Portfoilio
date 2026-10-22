@@ -1,11 +1,11 @@
 export const profile = {
   name: 'Danielraj',
   fullName: 'Danielraj S',
-  title: 'Full-Stack Engineer · AI & Enterprise Platforms',
-  focus: ['Enterprise risk intelligence', 'Governance tooling', 'AI-native SaaS'],
-  headline: 'I build intelligent tools for enterprise risk & governance.',
+  title: 'Full-Stack Engineer · AI Tools & Workflows',
+  focus: ['AI-powered tools', 'Workflow automation', 'Plain-language explanations'],
+  headline: 'I build small AI tools that remove friction from how teams work.',
   intro:
-    'From AI risk-intelligence platforms to access-governance systems — software that helps complex organisations see clearly, decide faster and stay compliant.',
+    'Python and TypeScript engineer who finds the repetitive, slow step in a process and turns it into a simple, deployed tool. AI where it helps, clear documentation so people can actually use it.',
   email: 'danielraj.contact@gmail.com',
   resume: '/resume.pdf',
   links: {

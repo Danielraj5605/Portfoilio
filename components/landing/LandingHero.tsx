@@ -47,9 +47,9 @@ export function LandingHero() {
               style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
             >
               <span className="block">a full-stack engineer</span>
-              <span className="block">building intelligent</span>
-              <span className="block">tools for enterprise</span>
-              <span className="block">risk &amp; governance</span>
+              <span className="block">building AI tools that</span>
+              <span className="block">remove friction from</span>
+              <span className="block">how teams work</span>
             </p>
             <span aria-hidden className="mt-4 block h-0.5 w-12 rounded-full bg-gradient-to-r from-[#B600A8] to-[#7621B0]" />
           </div>
