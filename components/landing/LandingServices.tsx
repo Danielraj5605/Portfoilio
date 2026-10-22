@@ -1,4 +1,5 @@
 import { FadeIn } from './FadeIn';
+import { RevealText } from './RevealText';
 
 const SERVICES = [
   {
@@ -29,25 +30,24 @@ export function LandingServices() {
       id="services"
       className="relative rounded-t-[40px] bg-white px-5 py-14 sm:rounded-t-[50px] sm:px-8 sm:py-16 md:rounded-t-[60px] md:px-10 md:py-20"
     >
-      <h2
+      <RevealText
+        text="Services"
         className="mb-8 text-center font-black uppercase leading-none sm:mb-10 md:mb-14"
         style={{ color: '#0C0C0C', fontSize: 'clamp(3rem, 12vw, 160px)' }}
-      >
-        Services
-      </h2>
+      />
 
       <div className="mx-auto max-w-5xl">
         {SERVICES.map((s, i) => (
           <FadeIn
             key={s.name}
             delay={i * 0.1}
-            className="flex gap-4 py-6 sm:gap-8 sm:py-7 md:gap-12 md:py-8"
+            className="group flex gap-4 py-6 sm:gap-8 sm:py-7 md:gap-12 md:py-8"
             style={{ borderTop: i === 0 ? undefined : '1px solid rgba(12, 12, 12, 0.15)' }}
           >
-            <span className="shrink-0 font-black leading-none" style={{ color: '#0C0C0C', fontSize: 'clamp(2.5rem, 6vw, 88px)' }}>
+            <span className="shrink-0 font-black leading-none transition-transform duration-500 ease-out group-hover:translate-x-2" style={{ color: '#0C0C0C', fontSize: 'clamp(2.5rem, 6vw, 88px)' }}>
               {String(i + 1).padStart(2, '0')}
             </span>
-            <div className="flex flex-col justify-center gap-3" style={{ color: '#0C0C0C' }}>
+            <div className="flex flex-col justify-center gap-3 transition-transform duration-500 ease-out group-hover:translate-x-3" style={{ color: '#0C0C0C' }}>
               <h3 className="font-medium uppercase" style={{ fontSize: 'clamp(1rem, 2.2vw, 2.1rem)' }}>
                 {s.name}
               </h3>

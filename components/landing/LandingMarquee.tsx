@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { motion, useScroll, useTransform, type MotionValue } from 'motion/react';
+import { useRef, type ReactNode } from 'react';
 import { ProjectArt } from '@/components/projects/ProjectArt';
 import { projects } from '@/content/projects';
 import { allSkills } from '@/content/skills';
@@ -34,37 +35,28 @@ const perProject = Math.ceil(skillTiles.length / projectTiles.length);
 const mixed = projectTiles.flatMap((t, i) => [t, ...skillTiles.slice(i * perProject, (i + 1) * perProject)]);
 const half = Math.ceil(mixed.length / 2);
 
-function Row({ items, transform }: { items: Tile[]; transform: string }) {
+function Row({ items, x }: { items: Tile[]; x: MotionValue<number> }) {
   const tripled = [...items, ...items, ...items];
   return (
-    <div className="flex w-max gap-3" style={{ transform, willChange: 'transform' }} aria-hidden>
+    <motion.div className="flex w-max gap-3" style={{ x, willChange: 'transform' }} aria-hidden>
       {tripled.map((t, i) => (
         <div key={`${t.key}-${i}`}>{t.node}</div>
       ))}
-    </div>
+    </motion.div>
   );
 }
 
 /** Two rows that slide in opposite directions as the page scrolls. */
 export function LandingMarquee() {
   const ref = useRef<HTMLElement>(null);
-  const [offset, setOffset] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (!ref.current) return;
-      const top = ref.current.getBoundingClientRect().top + window.scrollY;
-      setOffset((window.scrollY - top + window.innerHeight) * 0.3);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const forward = useTransform(scrollYProgress, [0, 1], [-200, 300]);
+  const backward = useTransform(scrollYProgress, [0, 1], [200, -300]);
 
   return (
     <section ref={ref} className="flex flex-col gap-3 overflow-hidden pb-10 pt-24 sm:pt-32 md:pt-40" style={{ background: '#0C0C0C' }}>
-      <Row items={mixed.slice(0, half)} transform={`translateX(${offset - 200}px)`} />
-      <Row items={mixed.slice(half)} transform={`translateX(${-(offset - 200)}px)`} />
+      <Row items={mixed.slice(0, half)} x={forward} />
+      <Row items={mixed.slice(half)} x={backward} />
     </section>
   );
 }

@@ -2,6 +2,8 @@ import { BrainCircuit, Code2, ShieldCheck, Sparkles, type LucideIcon } from 'luc
 import { AnimatedText } from './AnimatedText';
 import { ContactButton } from './ContactButton';
 import { FadeIn } from './FadeIn';
+import { Float } from './Float';
+import { RevealText } from './RevealText';
 
 const ABOUT_TEXT =
   "I'm a full-stack engineer and final-year Computer Science student at SRM (CGPA 8.31). Since July 2025 I've been shipping inventory, school-tracking, multi-tenant and quick-commerce products at Techcora, and on my own I build AI tools like ScamShield, trained on IBM LinuxONE, and a distributed job scheduler. Let's build something incredible together!";
@@ -22,25 +24,28 @@ export function LandingAbout() {
     >
       {DECOS.map(({ Icon, position, size, delay, x, tilt }) => (
         <FadeIn key={position} delay={delay} x={x} y={0} duration={0.9} className={`absolute ${position}`}>
-          <div
-            aria-hidden
-            className={`${size} ${tilt} grid place-items-center rounded-[28%] text-white`}
-            style={{
-              background: 'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',
-              boxShadow: '0px 4px 4px rgba(181, 1, 167, 0.25), 4px 4px 12px #7721B1 inset',
-            }}
-          >
-            <Icon className="size-1/2" strokeWidth={1.5} />
-          </div>
+          <Float delay={delay * 3}>
+            <div
+              aria-hidden
+              className={`${size} ${tilt} grid place-items-center rounded-[28%] text-white`}
+              style={{
+                background: 'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',
+                boxShadow: '0px 4px 4px rgba(181, 1, 167, 0.25), 4px 4px 12px #7721B1 inset',
+              }}
+            >
+              <Icon className="size-1/2" strokeWidth={1.5} />
+            </div>
+          </Float>
         </FadeIn>
       ))}
 
       <div className="relative z-10 flex flex-col items-center gap-10 sm:gap-14 md:gap-16">
-        <FadeIn delay={0} y={40}>
-          <h2 className="hero-heading text-center font-black uppercase leading-none tracking-tight" style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}>
-            About me
-          </h2>
-        </FadeIn>
+        <RevealText
+          text="About me"
+          wordClassName="hero-heading"
+          className="text-center font-black uppercase leading-none tracking-tight"
+          style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
+        />
         <AnimatedText
           text={ABOUT_TEXT}
           className="max-w-[560px] text-center font-medium leading-relaxed text-[#D7E2EA]"

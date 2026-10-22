@@ -29,6 +29,59 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: 'ghost-api',
+    featured: true,
+    name: 'Ghost API',
+    kind: 'AI agent · website to typed API client',
+    tagline: 'Give it a website. Get back a tested API client.',
+    summary:
+      'An AI agent that explores a site in a real browser, works out its hidden JSON API and generates a typed, verified Python or TypeScript client.',
+    size: 'wide',
+    art: 'chat',
+    palette: ['#5b4bd6', '#c9f0e4'],
+    image: '/projects/ghost-api.png',
+    role: 'Developer',
+    tags: ['AI agents', 'Reverse engineering', 'Code generation', 'Developer tools'],
+    stack: ['Python', 'Playwright', 'FastAPI', 'React', 'pydantic', 'Gemini'],
+    links: { repo: 'https://github.com/Danielraj5605/Ghost-api' },
+    problem:
+      'Almost every modern site loads its data through a hidden internal API, but getting at it means brittle HTML scrapers or hours of copying requests out of browser DevTools. No existing tool both discovers these APIs and writes working code for them.',
+    approach: [
+      'An agent explores the site by clicking, searching and scrolling in Playwright, capturing the JSON traffic while redacting cookies, tokens and keys before anything is stored or sent to an LLM.',
+      'Hypotheses such as pagination style, required headers and API keys are tested with direct calls, and endpoints are only reported when the tests confirm them.',
+      'A pydantic-typed client, pytest suite, OpenAPI 3.1 spec and report are generated; the tests run against the live API and failures are repaired for up to three rounds.',
+    ],
+    outcome:
+      'Evaluated end to end on four sites using free LLM tiers: every goal endpoint found, nothing invented, and every generated client test passing, in 1–10 LLM calls per site. It also ships a live terminal UI, a local web dashboard and a one-file shareable report.',
+    highlights: ['100% recall and precision on 4 sites', 'Python + TypeScript clients', 'Never calls state-changing endpoints', 'Runs on free LLM tiers'],
+  },
+  {
+    slug: 'log-whisperer',
+    featured: true,
+    name: 'Log Whisperer',
+    kind: 'AI live log intelligence agent',
+    tagline: 'An alert that explains the root cause, not just the error.',
+    summary:
+      'A CLI agent that tails logs from files, Docker or stdin and uses an LLM to raise evidence-backed anomaly alerts.',
+    size: 'wide',
+    art: 'radar',
+    palette: ['#3d5a80', '#c5d8e8'],
+    image: '/projects/log-whisperer.png',
+    role: 'Developer',
+    tags: ['Observability', 'LLM', 'DevOps', 'CLI'],
+    stack: ['Python', 'Gemini', 'Claude', 'GPT-4o', 'Ollama', 'Docker'],
+    links: { repo: 'https://github.com/Danielraj5605/Log-Whisperer' },
+    problem:
+      'Rule-based log monitoring matches static patterns and floods teams with duplicate alerts, without saying what is actually going wrong.',
+    approach: [
+      'Smart triggering wakes the LLM only when something looks wrong, not on every line.',
+      'Each alert carries evidence, a likely root cause, the blast radius and what to do now.',
+      'Cooldown suppression turns 200 identical errors into one alert with a suppressed count; Windows toast notifications work with the terminal minimised.',
+    ],
+    outcome: 'A local-first tool that needs only a free Gemini API key to run, with a guided setup wizard.',
+    highlights: ['Evidence-backed alerts', 'Cooldown suppression', 'Multiple LLM providers'],
+  },
+  {
     slug: 'scamshield',
     featured: true,
     name: 'ScamShield',
@@ -39,6 +92,7 @@ export const projects: Project[] = [
     size: 'feature',
     art: 'radar',
     palette: ['#4a7fd1', '#cfe7f3'],
+    image: '/projects/scamshield.png',
     role: 'Developer',
     tags: ['AI for Good', 'Fraud detection', 'NLP', 'IBM LinuxONE'],
     stack: ['Python', 'PyTorch', 'scikit-learn', 'TF-IDF', 'Gradient boosting', 'IBM LinuxONE (s390x)'],
@@ -107,30 +161,6 @@ export const projects: Project[] = [
     outcome:
       'A deployed three-service system with a live analytics dashboard (delivery, open and click rates) fed by pre-calculated PostgreSQL triggers.',
     highlights: ['Plain-English segments', 'AI message drafting', 'Webhook delivery tracking', 'Live analytics'],
-  },
-  {
-    slug: 'log-whisperer',
-    name: 'Log Whisperer',
-    kind: 'AI live log intelligence agent',
-    tagline: 'An alert that explains the root cause, not just the error.',
-    summary:
-      'A CLI agent that tails logs from files, Docker or stdin and uses an LLM to raise evidence-backed anomaly alerts.',
-    size: 'wide',
-    art: 'radar',
-    palette: ['#3d5a80', '#c5d8e8'],
-    role: 'Developer',
-    tags: ['Observability', 'LLM', 'DevOps', 'CLI'],
-    stack: ['Python', 'Gemini', 'Claude', 'GPT-4o', 'Ollama', 'Docker'],
-    links: { repo: 'https://github.com/Danielraj5605/Log-Whisperer' },
-    problem:
-      'Rule-based log monitoring matches static patterns and floods teams with duplicate alerts, without saying what is actually going wrong.',
-    approach: [
-      'Smart triggering wakes the LLM only when something looks wrong, not on every line.',
-      'Each alert carries evidence, a likely root cause, the blast radius and what to do now.',
-      'Cooldown suppression turns 200 identical errors into one alert with a suppressed count; Windows toast notifications work with the terminal minimised.',
-    ],
-    outcome: 'A local-first tool that needs only a free Gemini API key to run, with a guided setup wizard.',
-    highlights: ['Evidence-backed alerts', 'Cooldown suppression', 'Multiple LLM providers'],
   },
   {
     slug: 'edgecraft',

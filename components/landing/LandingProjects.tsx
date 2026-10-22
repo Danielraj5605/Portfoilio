@@ -3,6 +3,7 @@ import { ProjectArt } from '@/components/projects/ProjectArt';
 import { moreProjects, projects, type Project } from '@/content/projects';
 import { CaseStudyButton } from './CaseStudyButton';
 import { FadeIn } from './FadeIn';
+import { RevealText } from './RevealText';
 
 const featured = projects.filter(p => p.featured);
 const others = projects.filter(p => !p.featured);
@@ -14,9 +15,11 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
   const flip = index % 2 === 1;
   return (
     <FadeIn y={40}>
-      <article className="group grid items-center gap-6 rounded-[32px] border border-[#D7E2EA]/25 p-4 sm:gap-8 sm:p-6 md:grid-cols-2 md:gap-12 md:rounded-[48px] md:p-8">
+      <article className="group grid transition-colors duration-500 hover:border-[#D7E2EA]/50items-center gap-6 rounded-[32px] border border-[#D7E2EA]/25 p-4 sm:gap-8 sm:p-6 md:grid-cols-2 md:gap-12 md:rounded-[48px] md:p-8">
         <div className={`relative aspect-[16/10] overflow-hidden rounded-[20px] border border-[#D7E2EA]/15 bg-[#141414] md:rounded-[32px] ${flip ? 'md:order-2' : ''}`}>
-          <ProjectArt project={project} className="size-full" />
+          <div className="size-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]">
+            <ProjectArt project={project} className="size-full" />
+          </div>
         </div>
 
         <div className="flex flex-col gap-4 px-1 text-[#D7E2EA] sm:px-2">
@@ -62,7 +65,7 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
 
 function MoreCard({ href, name, blurb, stack, external }: { href: string; name: string; blurb: string; stack: string[]; external?: boolean }) {
   const cls =
-    'flex h-full flex-col gap-3 rounded-3xl border border-[#D7E2EA]/30 p-5 text-[#D7E2EA] transition-colors duration-200 hover:border-[#D7E2EA]/80 focus-visible:border-[#D7E2EA]';
+    'flex h-full flex-col gap-3 rounded-3xl border border-[#D7E2EA]/30 p-5 text-[#D7E2EA] transition-[color,border-color,transform] duration-300 hover:-translate-y-1 hover:border-[#D7E2EA]/80 focus-visible:border-[#D7E2EA]';
   const body = (
     <>
       <h4 className="text-lg font-medium uppercase">{name}</h4>
@@ -88,11 +91,12 @@ export function LandingProjects() {
       className="relative z-10 -mt-10 rounded-t-[40px] px-5 py-14 sm:-mt-12 sm:rounded-t-[50px] sm:px-8 sm:py-16 md:-mt-14 md:rounded-t-[60px] md:px-10 md:py-20"
       style={{ background: '#0C0C0C' }}
     >
-      <FadeIn>
-        <h2 className="hero-heading mb-8 text-center font-black uppercase leading-none tracking-tight sm:mb-10 md:mb-14" style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}>
-          Project
-        </h2>
-      </FadeIn>
+      <RevealText
+        text="Project"
+        wordClassName="hero-heading"
+        className="mb-8 text-center font-black uppercase leading-none tracking-tight sm:mb-10 md:mb-14"
+        style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
+      />
 
       <div className="mx-auto flex max-w-6xl flex-col gap-8 md:gap-12">
         {featured.map((p, i) => (

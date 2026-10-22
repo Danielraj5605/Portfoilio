@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { profile } from '@/content/profile';
 import { ContactButton } from './ContactButton';
 import { FadeIn } from './FadeIn';
+import { HeroParallax } from './HeroParallax';
+import { RevealText } from './RevealText';
 
 const NAV_LINKS = [
   { href: '#about', label: 'About' },
@@ -25,13 +27,17 @@ export function LandingHero() {
         ))}
       </FadeIn>
 
-      <div className="relative z-10 overflow-hidden px-6 md:px-10">
-        <FadeIn delay={0.15} y={40}>
-          <h1 className="hero-heading mt-6 w-full whitespace-nowrap text-[10.4vw] font-black uppercase leading-none tracking-tight sm:mt-4 sm:text-[10.8vw] md:mt-2 md:text-[11.6vw]">
-            Hi, i&apos;m {profile.name}
-          </h1>
-        </FadeIn>
-      </div>
+      <HeroParallax speed={0.25} className="relative z-10 overflow-hidden px-6 md:px-10">
+        <RevealText
+          as="h1"
+          text={`Hi, i'm ${profile.name}`}
+          delay={0.2}
+          stagger={0.12}
+          duration={1.1}
+          wordClassName="hero-heading"
+          className="mt-6 w-full whitespace-nowrap text-[10.4vw] font-black uppercase leading-none tracking-tight sm:mt-4 sm:text-[10.8vw] md:mt-2 md:text-[11.6vw]"
+        />
+      </HeroParallax>
 
       <div className="relative z-20 mt-auto flex items-end justify-between px-6 pb-7 sm:pb-8 md:px-10 md:pb-10">
         <FadeIn delay={0.35} y={20}>
@@ -57,7 +63,7 @@ export function LandingHero() {
         y={40}
         className="pointer-events-none absolute bottom-0 right-1/2 z-[15] w-[min(88vw,420px,62vh)] translate-x-1/2 sm:right-[8vw] sm:w-[min(44vw,73vh)] sm:translate-x-0 lg:right-[14vw]"
       >
-        <div className="relative">
+        <HeroParallax speed={0.12} className="relative">
           <div
             aria-hidden
             className="absolute left-1/2 top-[58%] aspect-square w-[110%] -translate-x-1/2 -translate-y-1/2 rounded-full"
@@ -84,7 +90,7 @@ export function LandingHero() {
             style={{ filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.5))' }}
             draggable={false}
           />
-        </div>
+        </HeroParallax>
       </FadeIn>
     </section>
   );
